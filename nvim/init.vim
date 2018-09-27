@@ -14,6 +14,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neomake/neomake'
     " A Vim Plugin for Lively Previewing LaTeX PDF Output
     Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+    " NERDTree - A File Explorer Plugin"
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    " YouCompleteMe - Auto completion "
+    Plug 'Valloric/YouCompleteMe'
 " }
 
 call plug#end()
@@ -25,8 +29,9 @@ call plug#end()
     set expandtab           " Insert spaces when TAB is pressed.
     set tabstop=4           " Render TABs using this many spaces.
     syntax on
-    color dracula
+    colorscheme dracula
     "colorscheme gruvbox
+    set background=dark
     hi Normal guibg=NONE ctermbg=NONE
     " Relative numbering
     set nornu
@@ -83,6 +88,9 @@ call plug#end()
         nnoremap <Leader>b :CtrlPBuffer<CR>
         " Open most recently used files
         nnoremap <Leader>f :CtrlPMRUFiles<CR>
+    " }
+    " NERDTree {
+        map <C-n> :NERDTreeToggle<CR>
     " }
     " neomake {
         autocmd! BufWritePost * Neomake
